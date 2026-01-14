@@ -6,57 +6,59 @@
 
 @layer base {
   :root {
-    /* Al Jazyah Brand Colors */
-    --background: 120 20% 98%;
-    --foreground: 150 30% 15%;
+    /* Standard Clean Base - Premium Warm White (Alabaster) */
+    --background: 60 5% 98%;
+    --foreground: 150 45% 10%;
+    /* Darker Forest Green/Black for text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 150 30% 15%;
+    --card: 60 5% 98%;
+    --card-foreground: 150 45% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 150 30% 15%;
+    --popover: 60 5% 98%;
+    --popover-foreground: 150 45% 10%;
 
-    /* Forest Green - Primary */
+    /* Brand Primary - Refined Forest Green */
     --primary: 150 45% 23%;
     --primary-foreground: 0 0% 100%;
 
-    /* Leaf Green - Secondary */
+    /* Brand Secondary - Leaf Green */
     --secondary: 135 50% 40%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Muted - Soft sage */
-    --muted: 130 20% 94%;
-    --muted-foreground: 150 15% 45%;
+    /* Muted - Subtle Sage Grey */
+    --muted: 150 10% 96%;
+    --muted-foreground: 150 15% 40%;
 
-    /* Accent - Light leaf */
-    --accent: 130 35% 88%;
+    /* Accent - Subtle Green Tint */
+    --accent: 135 30% 96%;
     --accent-foreground: 150 45% 20%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 130 20% 88%;
-    --input: 130 20% 88%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
     --ring: 150 45% 23%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
+    /* More standard radius */
 
-    /* Custom Brand Variables */
+    /* Custom Brand Variables Kept for Reference/Use */
     --forest: 150 45% 23%;
     --leaf: 135 50% 40%;
     --sage: 130 25% 70%;
     --slate: 210 12% 45%;
     --cream: 45 30% 96%;
-    
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(150 45% 23% / 0.95), hsl(135 50% 30% / 0.9));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(130 20% 98%));
-    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(150 45% 15% / 0.7) 100%);
-    
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(150 30% 20% / 0.12);
-    --shadow-elevated: 0 12px 40px -8px hsl(150 30% 20% / 0.18);
-    --shadow-glow: 0 0 40px hsl(135 50% 40% / 0.2);
+
+    /* Modern Gradients - More Subtle */
+    --gradient-hero: linear-gradient(135deg, hsl(150 45% 23%), hsl(135 50% 30%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+
+    /* Modern Shadows */
+    --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-elevated: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    --shadow-glow: 0 0 20px rgba(135, 200, 150, 0.3);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -69,33 +71,34 @@
   }
 
   .dark {
-    --background: 150 30% 8%;
-    --foreground: 120 20% 95%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 150 25% 12%;
-    --card-foreground: 120 20% 95%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 150 25% 12%;
-    --popover-foreground: 120 20% 95%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 135 50% 45%;
-    --primary-foreground: 150 30% 8%;
+    --primary: 150 45% 40%;
+    /* Lighter green for dark mode */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 150 40% 30%;
-    --secondary-foreground: 120 20% 95%;
+    --secondary: 135 50% 40%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 150 20% 18%;
-    --muted-foreground: 130 15% 60%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
 
     --accent: 135 30% 22%;
-    --accent-foreground: 120 20% 95%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 150 20% 20%;
-    --input: 150 20% 20%;
-    --ring: 135 50% 45%;
+    --border: 217 33% 20%;
+    --input: 217 33% 20%;
+    --ring: 150 45% 45%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -118,8 +121,14 @@
     font-family: 'Source Sans 3', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Playfair Display', serif;
+    @apply text-foreground;
   }
 }
 
@@ -132,38 +141,63 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
   }
 
+  /* Ultra-Premium Luxury Card 2.0 - Rich Glass Edition */
+  .luxury-card {
+    @apply relative overflow-hidden rounded-[2rem];
+    @apply bg-white/70 backdrop-blur-md border border-white/40;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    transition: all 0.4s cubic-bezier(0.25, 0.4, 0.25, 1);
+  }
+
+  .luxury-card:hover {
+    @apply -translate-y-2 border-primary/20;
+    box-shadow: 0 20px 40px -12px rgba(22, 163, 74, 0.12);
+    /* Brighter green shadow */
+  }
+
+  /* Refined Icon Wrapper in Card */
+  .luxury-card .icon-wrapper {
+    @apply transition-all duration-300;
+  }
+
+  .luxury-card:hover .icon-wrapper {
+    @apply bg-primary text-white scale-110 rotate-0;
+  }
+
+
+  /* Keep legacy glass-card for simpler uses, but refine */
   .glass-card {
-    @apply bg-card/80 backdrop-blur-md border border-border/50;
-    box-shadow: var(--shadow-soft);
+    @apply bg-white/80 backdrop-blur-sm border border-white/20 rounded-xl shadow-sm;
   }
 
   .btn-hero {
-    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-lg transition-all duration-300;
     @apply bg-primary text-primary-foreground hover:bg-primary/90;
-    @apply shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+    @apply shadow-md hover:shadow-lg hover:-translate-y-0.5;
   }
 
   .btn-hero-outline {
-    @apply inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full transition-all duration-300;
-    @apply bg-transparent border-2 border-primary-foreground/80 text-primary-foreground;
-    @apply hover:bg-primary-foreground hover:text-primary;
+    @apply inline-flex items-center justify-center px-8 py-3.5 text-base font-semibold rounded-lg transition-all duration-300;
+    @apply bg-white text-primary border-2 border-white;
+    @apply hover:bg-white/90 hover:scale-105 shadow-md;
   }
 
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-10 md:py-16;
   }
 
   .heading-display {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    @apply text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-foreground;
   }
 
   .heading-section {
-    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    @apply text-3xl md:text-4xl font-bold tracking-tight text-foreground;
   }
 
+  /* Subtler leaf decoration, or remove if too noisy. Keeping subtle for now. */
   .leaf-decoration::before {
     content: '';
-    @apply absolute w-32 h-32 opacity-10;
+    @apply absolute w-32 h-32 opacity-5 pointer-events-none;
     background: radial-gradient(circle, hsl(var(--leaf)) 0%, transparent 70%);
   }
 }
@@ -186,15 +220,23 @@
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -202,8 +244,13 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 
   @keyframes scaleIn {
@@ -211,9 +258,32 @@
       opacity: 0;
       transform: scale(0.95);
     }
+
     to {
       opacity: 1;
       transform: scale(1);
+    }
+  }
+
+  /* Mouse Scroll Animation */
+  .mouse-indicator {
+    @apply w-[30px] h-[50px] border-2 border-white/80 rounded-full relative flex justify-center pt-2 opacity-90 transition-opacity hover:opacity-100;
+  }
+
+  .mouse-wheel {
+    @apply w-1 h-2 bg-white rounded-full;
+    animation: scrollWheel 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollWheel {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(15px);
+      opacity: 0;
     }
   }
 }

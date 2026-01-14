@@ -1,29 +1,60 @@
-import { Leaf } from 'lucide-react';
+import { Leaf, Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground py-12">
+    <footer className="bg-foreground text-white pt-20 pb-10">
       <div className="container-luxury">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <Leaf className="w-6 h-6 text-primary-foreground" />
-            <span className="font-serif text-xl font-bold text-primary-foreground">
-              Al Jazyah Trading
-            </span>
+        <div className="grid md:grid-cols-3 gap-12 mb-16 border-b border-white/10 pb-12">
+          {/* Brand */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <Leaf className="w-8 h-8 text-primary" />
+              <div className="flex flex-col">
+                <span className="font-serif text-2xl font-bold">Al Jazyah</span>
+                <span className="text-xs uppercase tracking-[0.2em] text-white/60">Trading</span>
+              </div>
+            </div>
+            <p className="text-white/70 max-w-xs leading-relaxed">
+              Adorning your green life with premium landscaping and plant supplies across the UAE.
+            </p>
           </div>
 
-          {/* Copyright */}
-          <p className="text-primary-foreground/60 text-sm text-center">
-            © {currentYear} Al Jazyah Trading. All rights reserved.
-          </p>
+          {/* Quick Contact */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-serif font-semibold">Contact Us</h4>
+            <div className="space-y-4 text-white/80">
+              <a href="tel:+971501234567" className="flex items-center gap-3 hover:text-primary transition-colors">
+                <Phone className="w-5 h-5 text-primary" />
+                <span>+971 50 123 4567</span>
+              </a>
+              <a href="mailto:info@aljazyah.com" className="flex items-center gap-3 hover:text-primary transition-colors">
+                <Mail className="w-5 h-5 text-primary" />
+                <span>info@aljazyah.com</span>
+              </a>
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
+                <span>East villoor, Indianoor (P.O), <br />Kottakkal, Malappuram, 676503</span>
+              </div>
+            </div>
+          </div>
 
-          {/* Tagline */}
-          <p className="text-primary-foreground/60 text-sm italic">
-            Adorning the green life of yours
-          </p>
+          {/* Links */}
+          <div className="space-y-6">
+            <h4 className="text-lg font-serif font-semibold">Quick Links</h4>
+            <ul className="space-y-3 text-white/80">
+              <li><a href="/" className="hover:text-primary transition-colors">Home</a></li>
+              <li><a href="/about" className="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="/services" className="hover:text-primary transition-colors">Services</a></li>
+              <li><a href="/gallery" className="hover:text-primary transition-colors">Gallery</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/50">
+          <p>© {currentYear} Al Jazyah Trading. All rights reserved.</p>
+          <p>Designed with excellence.</p>
         </div>
       </div>
     </footer>

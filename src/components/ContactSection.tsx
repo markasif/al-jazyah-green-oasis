@@ -17,7 +17,7 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Form validation
     if (!formData.name.trim() || !formData.phone.trim() || !formData.email.trim()) {
       toast({
@@ -32,9 +32,9 @@ const ContactSection = () => {
     const message = encodeURIComponent(
       `Hello Al Jazyah Trading!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service || 'Not specified'}\n\nMessage: ${formData.message || 'I would like to request a quote.'}`
     );
-    
+
     window.open(`https://wa.me/971507000913?text=${message}`, '_blank');
-    
+
     toast({
       title: "Opening WhatsApp",
       description: "Your inquiry is being sent via WhatsApp.",
@@ -44,75 +44,83 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-primary relative overflow-hidden">
+    <section id="contact" className="section-padding bg-background relative overflow-hidden">
       {/* Decorative */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-secondary/20 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
-      
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+
       <div className="container-luxury relative z-10">
-        <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[0.25em] text-primary-foreground/70 mb-4">Get In Touch</p>
-          <h2 className="heading-section text-primary-foreground mb-4">Let's Create Your Green Sanctuary</h2>
-          <p className="text-primary-foreground/80 max-w-2xl mx-auto">
-            Ready to transform your space? Reach out for a free consultation and quote.
-          </p>
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div className="max-w-2xl">
+            <p className="text-sm uppercase tracking-[0.25em] text-primary mb-4 font-semibold">Get In Touch</p>
+            <h2 className="heading-section text-foreground">Let's Create Your Green Sanctuary</h2>
+          </div>
+          <div className="hidden md:block">
+            <p className="text-muted-foreground max-w-sm text-right">
+              Ready to transform your space? Reach out for a free consultation and quote.
+            </p>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="flex items-start gap-4">
-              <div className="p-3 rounded-full bg-primary-foreground/10">
-                <MapPin className="w-6 h-6 text-primary-foreground" />
+          <div className="flex flex-col h-full space-y-8">
+            <div className="space-y-8">
+              <div className="flex items-start gap-4 group">
+                <div className="p-4 rounded-2xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-serif text-xl font-bold text-foreground mb-2">Visit Us</h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Shop 29, Mina Irani Market<br />
+                    Abu Dhabi, UAE
+                  </p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-serif text-lg font-semibold text-primary-foreground mb-1">Visit Us</h4>
-                <p className="text-primary-foreground/80">
-                  Shop 29, Mina Irani Market<br />
-                  Abu Dhabi, UAE
-                </p>
+
+              <div className="flex items-start gap-4 group">
+                <div className="p-4 rounded-2xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-serif text-xl font-bold text-foreground mb-2">Call Us</h4>
+                  <div className="space-y-1">
+                    <a
+                      href="tel:+971507000913"
+                      className="block text-muted-foreground hover:text-primary transition-colors font-medium"
+                    >
+                      +971 50 700 0913
+                    </a>
+                    <a
+                      href="tel:+971506914302"
+                      className="block text-muted-foreground hover:text-primary transition-colors font-medium"
+                    >
+                      +971 50 691 4302
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 group">
+                <div className="p-4 rounded-2xl bg-primary/5 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                  <MessageCircle className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="font-serif text-xl font-bold text-foreground mb-2">WhatsApp</h4>
+                  <a
+                    href="https://wa.me/971507000913"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                  >
+                    Chat with us instantly
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
-              <div className="p-3 rounded-full bg-primary-foreground/10">
-                <Phone className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <div>
-                <h4 className="font-serif text-lg font-semibold text-primary-foreground mb-1">Call Us</h4>
-                <a 
-                  href="tel:+971507000913" 
-                  className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  +971 50 700 0913
-                </a>
-                <a 
-                  href="tel:+971506914302" 
-                  className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  +971 50 691 4302
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="p-3 rounded-full bg-primary-foreground/10">
-                <MessageCircle className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <div>
-                <h4 className="font-serif text-lg font-semibold text-primary-foreground mb-1">WhatsApp</h4>
-                <a 
-                  href="https://wa.me/971507000913" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Chat with us instantly
-                </a>
-              </div>
-            </div>
-
-            {/* Map Embed */}
-            <div className="mt-8 rounded-2xl overflow-hidden h-64">
+            {/* Map Embed - Flex grow to fill height */}
+            <div className="rounded-3xl overflow-hidden shadow-sm border border-border/20 flex-1 min-h-[300px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3631.7!2d54.3773!3d24.4539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMina%20Irani%20Market!5e0!3m2!1sen!2sae!4v1600000000000!5m2!1sen!2sae"
                 width="100%"
@@ -122,13 +130,14 @@ const ContactSection = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Al Jazyah Trading Location"
+                className="grayscale hover:grayscale-0 transition-all duration-500 w-full h-full"
               />
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card rounded-2xl p-8 shadow-xl">
-            <h3 className="font-serif text-2xl font-semibold text-foreground mb-6">
+          <div className="luxury-card p-8 md:p-10">
+            <h3 className="font-serif text-2xl font-bold text-foreground mb-6">
               Request a Quote
             </h3>
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -137,7 +146,7 @@ const ContactSection = () => {
                   placeholder="Your Name *"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-background border-border"
+                  className="bg-muted/30 border-transparent focus:bg-white transition-all h-12 rounded-xl"
                   maxLength={100}
                 />
               </div>
@@ -147,7 +156,7 @@ const ContactSection = () => {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="bg-background border-border"
+                  className="bg-muted/30 border-transparent focus:bg-white transition-all h-12 rounded-xl"
                   maxLength={20}
                 />
                 <Input
@@ -155,7 +164,7 @@ const ContactSection = () => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="bg-background border-border"
+                  className="bg-muted/30 border-transparent focus:bg-white transition-all h-12 rounded-xl"
                   maxLength={255}
                 />
               </div>
@@ -163,7 +172,7 @@ const ContactSection = () => {
                 <select
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="w-full h-10 px-3 rounded-md border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="w-full h-12 px-3 rounded-xl border-transparent bg-muted/30 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:bg-white transition-all"
                 >
                   <option value="">Select Service Required</option>
                   <option value="soft-landscaping">Soft Landscaping</option>
@@ -180,11 +189,11 @@ const ContactSection = () => {
                   placeholder="Tell us about your project..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="bg-background border-border min-h-[120px]"
+                  className="bg-muted/30 border-transparent focus:bg-white transition-all min-h-[150px] rounded-xl resize-none"
                   maxLength={1000}
                 />
               </div>
-              <Button type="submit" className="w-full rounded-full py-6 text-base">
+              <Button type="submit" className="w-full rounded-xl py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all">
                 <Send className="w-4 h-4 mr-2" />
                 Send via WhatsApp
               </Button>
