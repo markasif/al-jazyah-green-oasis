@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Leaf } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -16,6 +16,18 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock scroll when mobile sidebar is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   const handleNavigation = (id: string, path?: string) => {
     setIsMobileMenuOpen(false);
@@ -66,12 +78,11 @@ const Header = () => {
           className="flex items-center gap-3 cursor-pointer group"
           onClick={() => handleNavigation('home', '/')}
         >
-          <div className="relative">
-            <Leaf
-              className={`w-8 h-8 transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-white'
-                }`}
-            />
-          </div>
+          <img
+            src="/icons/logo.jpg"
+            alt="Al Jazyah Logo"
+            className="w-10 h-10 object-contain transition-transform duration-300 group-hover:scale-105"
+          />
           <div className="flex flex-col">
             <span className={`font-serif text-xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? 'text-foreground' : 'text-white'
               }`}>
@@ -112,38 +123,88 @@ const Header = () => {
           className="md:hidden p-2 active:scale-95 transition-transform"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? (
-            <X className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-          ) : (
-            <Menu className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-          )}
+          <Menu className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-border shadow-xl animate-fade-in-down">
-          <nav className="container-luxury py-6 flex flex-col gap-2">
-            {navItems.map((item) => (
+      {/* Mobile Sidebar (Drawer) */}
+      <div
+        className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${
+          isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        {/* Backdrop overlay */}
+        <div
+          className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+
+        {/* Sidebar panel */}
+        <div
+          className={`absolute top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl p-6 flex flex-col justify-between transition-transform duration-300 transform ${
+            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div>
+            {/* Sidebar Header */}
+            <div className="flex items-center justify-between pb-6 border-b border-border">
+              <div className="flex items-center gap-2">
+                <img
+                  src="/icons/logo.jpg"
+                  alt="Al Jazyah Logo"
+                  className="w-8 h-8 object-contain"
+                />
+                <div className="flex flex-col">
+                  <span className="font-serif font-bold text-foreground leading-none text-base">Al Jazyah</span>
+                  <span className="text-[9px] uppercase tracking-wider text-muted-foreground mt-0.5">Green Oasis</span>
+                </div>
+              </div>
               <button
-                key={item.label}
-                onClick={() => handleNavigation(item.id, item.path)}
-                className="text-left font-medium py-3 px-4 rounded-lg text-foreground hover:bg-muted/50 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 rounded-full hover:bg-muted text-foreground transition-colors"
               >
-                {item.label}
+                <X className="w-5 h-5" />
               </button>
-            ))}
-            <div className="px-4 mt-2">
-              <Button
-                onClick={() => handleNavigation('contact')}
-                className="w-full rounded-lg bg-primary text-white hover:bg-primary/90"
-              >
-                Get Quote
-              </Button>
             </div>
-          </nav>
+
+            {/* Navigation Links */}
+            <nav className="flex flex-col gap-1 py-8">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => handleNavigation(item.id, item.path)}
+                  className={`text-left font-medium py-3 px-4 rounded-xl text-foreground hover:bg-primary/5 hover:text-primary transition-all duration-200 text-base flex justify-between items-center ${
+                    location.pathname === item.path ? 'bg-primary/5 text-primary font-semibold' : ''
+                  }`}
+                >
+                  <span>{item.label}</span>
+                </button>
+              ))}
+            </nav>
+          </div>
+
+          {/* Sidebar Footer */}
+          <div className="space-y-6 border-t border-border pt-6">
+            <Button
+              onClick={() => handleNavigation('contact')}
+              className="w-full rounded-xl bg-primary text-white hover:bg-primary/90 py-6 text-base font-semibold shadow-md"
+            >
+              Get Quote
+            </Button>
+            
+            {/* Quick Contacts inside sidebar */}
+            <div className="space-y-3 text-xs text-muted-foreground">
+              <p className="font-semibold uppercase tracking-wider text-[10px] text-foreground">Contact Info</p>
+              <a href="tel:+971507000913" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <span>📞 +971 50 700 0913</span>
+              </a>
+              <p className="flex items-center gap-2">
+                <span>📍 Mina Irani Market, Abu Dhabi</span>
+              </p>
+            </div>
+          </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };

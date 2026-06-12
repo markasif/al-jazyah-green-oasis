@@ -32,18 +32,34 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <button onClick={() => navigate('/gallery#products')} key={item} className="group luxury-card block overflow-hidden text-left w-full">
+            {[
+              {
+                title: 'Indoor Statement',
+                name: 'Bird of Paradise',
+                image: '/image/indoor-plants_5.webp',
+              },
+              {
+                title: 'Natural Turf',
+                name: 'Signature Lawn',
+                image: '/image/outdoor-garden_8.webp',
+              },
+              {
+                title: 'Decorative Feature',
+                name: 'Water Sanctuary',
+                image: '/image/water-feature_9.webp',
+              },
+            ].map((item, index) => (
+              <button onClick={() => navigate('/gallery#products')} key={index} className="group luxury-card block overflow-hidden text-left w-full">
                 <div className="aspect-[4/5] relative overflow-hidden">
                   <img
-                    src="https://images.unsplash.com/photo-1545241047-6083a3684587?q=80&w=1000&auto=format&fit=crop"
-                    alt="Signature Plant"
+                    src={item.image}
+                    alt={item.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                   <div className="absolute bottom-6 left-6 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <p className="text-xs font-bold uppercase tracking-wider mb-2">Signature Series</p>
-                    <h3 className="font-serif text-2xl">Exotic Palm {item}</h3>
+                    <p className="text-xs font-bold uppercase tracking-wider mb-2">{item.title}</p>
+                    <h3 className="font-serif text-2xl">{item.name}</h3>
                   </div>
                 </div>
               </button>

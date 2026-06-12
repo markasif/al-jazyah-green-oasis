@@ -9,9 +9,9 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
-import heroImage from "@/assets/hero-landscape.jpg"; // Using existing assets for now
-import outdoorGardenImg from "@/assets/outdoor-garden.jpg";
-import indoorPlantsImg from "@/assets/indoor-plants.jpg";
+const heroImage = "/image/hero-landscape_4.webp"; // Using existing assets for now
+const outdoorGardenImg = "/image/outdoor-garden_8.webp";
+const indoorPlantsImg = "/image/indoor-plants_5.webp";
 
 const projects = [
     {

@@ -1,5 +1,4 @@
-import heroImage from '@/assets/hero-landscape.jpg';
-import heroVideo from '@/assets/hero-video.mp4';
+const heroImage = '/image/hero-landscape_4.webp';
 import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
@@ -23,14 +22,17 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <video
           key="hero-video-local"
-          src={heroVideo}
           autoPlay
           muted
           loop
           playsInline
           poster={heroImage}
+          preload="auto"
           className="w-full h-full object-cover animate-scale-in"
         >
+          <source src="/video/hero-video.webm" type="video/webm" />
+          <source src="/video/hero-video.mp4" type="video/mp4" />
+          <track kind="captions" src="" label="No audio captions" />
           {/* Fallback Image */}
           <img
             src={heroImage}

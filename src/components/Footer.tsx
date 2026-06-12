@@ -1,4 +1,4 @@
-import { Leaf, Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +10,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <Leaf className="w-8 h-8 text-primary" />
+              <img
+                src="/icons/logo.jpg"
+                alt="Al Jazyah Logo"
+                className="w-12 h-12 object-contain"
+              />
               <div className="flex flex-col">
                 <span className="font-serif text-2xl font-bold">Al Jazyah</span>
                 <span className="text-xs uppercase tracking-[0.2em] text-white/60">Trading</span>
@@ -25,17 +29,17 @@ const Footer = () => {
           <div className="space-y-6">
             <h4 className="text-lg font-serif font-semibold">Contact Us</h4>
             <div className="space-y-4 text-white/80">
-              <a href="tel:+971501234567" className="flex items-center gap-3 hover:text-primary transition-colors">
+              <a href="tel:+971507000913" className="flex items-center gap-3 hover:text-primary transition-colors">
                 <Phone className="w-5 h-5 text-primary" />
-                <span>+971 50 123 4567</span>
+                <span>+971 50 700 0913</span>
               </a>
-              <a href="mailto:info@aljazyah.com" className="flex items-center gap-3 hover:text-primary transition-colors">
+              <a href="mailto:info@aljazyahtrading.com" className="flex items-center gap-3 hover:text-primary transition-colors">
                 <Mail className="w-5 h-5 text-primary" />
-                <span>info@aljazyah.com</span>
+                <span>info@aljazyahtrading.com</span>
               </a>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
-                <span>East villoor, Indianoor (P.O), <br />Kottakkal, Malappuram, 676503</span>
+                <span>Shop 29, Mina Irani Market<br />Abu Dhabi, UAE</span>
               </div>
             </div>
           </div>

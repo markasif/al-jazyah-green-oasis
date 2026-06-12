@@ -1,10 +1,10 @@
 import { Droplets, Hammer, Flower2, TreeDeciduous, Wrench, Plug, Pipette, Sprout } from 'lucide-react';
-import irrigationImg from '@/assets/irrigation.jpg';
-import waterFeatureImg from '@/assets/water-feature.jpg';
-import interlockImg from '@/assets/interlock-tiles.jpg';
-import outdoorImg from '@/assets/outdoor-garden.jpg';
-import indoorPlantsImg from '@/assets/indoor-plants.jpg';
-import heroImage from '@/assets/hero-landscape.jpg';
+const irrigationImg = '/image/irrigation_7.webp';
+const waterFeatureImg = '/image/water-feature_9.webp';
+const interlockImg = '/image/interlock-tiles_6.webp';
+const outdoorImg = '/image/outdoor-garden_8.webp';
+const indoorPlantsImg = '/image/indoor-plants_5.webp';
+const heroImage = '/image/hero-landscape_4.webp';
 
 const services = [
   {

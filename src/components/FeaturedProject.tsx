@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import projectImage from '@/assets/outdoor-garden.jpg';
+const projectImage = '/image/outdoor-garden_8.webp';
 
 const FeaturedProject = () => {
     return (

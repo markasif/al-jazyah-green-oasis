@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
-import indoorPlantsImg from '@/assets/indoor-plants.jpg';
-import outdoorGardenImg from '@/assets/outdoor-garden.jpg';
-import irrigationImg from '@/assets/irrigation.jpg';
-import waterFeatureImg from '@/assets/water-feature.jpg';
+const indoorPlantsImg = '/image/indoor-plants_5.webp';
+const outdoorGardenImg = '/image/outdoor-garden_8.webp';
+const irrigationImg = '/image/irrigation_7.webp';
+const waterFeatureImg = '/image/water-feature_9.webp';
 
 type MaintenanceLevel = 'Low' | 'Medium' | 'High';
 

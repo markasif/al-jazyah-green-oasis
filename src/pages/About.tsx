@@ -2,7 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Award, Users, Leaf, Clock, Sprout, Palette, ShieldCheck } from 'lucide-react';
-import heroImage from '@/assets/hero-landscape.jpg';
+const heroImage = '/image/hero-landscape_4.webp';
 
 const stats = [
     { icon: Clock, value: '20+', label: 'Years Experience' },

@@ -144,6 +144,7 @@ const ContactSection = () => {
               <div>
                 <Input
                   placeholder="Your Name *"
+                  aria-label="Your Name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="bg-muted/30 border-transparent focus:bg-white transition-all h-12 rounded-xl"
@@ -153,6 +154,7 @@ const ContactSection = () => {
               <div className="grid sm:grid-cols-2 gap-4">
                 <Input
                   placeholder="Phone Number *"
+                  aria-label="Phone Number"
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -161,6 +163,7 @@ const ContactSection = () => {
                 />
                 <Input
                   placeholder="Email Address *"
+                  aria-label="Email Address"
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -171,6 +174,7 @@ const ContactSection = () => {
               <div>
                 <select
                   value={formData.service}
+                  aria-label="Select Service Required"
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                   className="w-full h-12 px-3 rounded-xl border-transparent bg-muted/30 text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring focus:bg-white transition-all"
                 >
@@ -187,6 +191,7 @@ const ContactSection = () => {
               <div>
                 <Textarea
                   placeholder="Tell us about your project..."
+                  aria-label="Tell us about your project"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="bg-muted/30 border-transparent focus:bg-white transition-all min-h-[150px] rounded-xl resize-none"
