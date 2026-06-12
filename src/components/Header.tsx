@@ -6,6 +6,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const [isNavigating, setIsNavigating] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -29,8 +31,44 @@ const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
+  // Track active section/page based on scroll intersection
+  useEffect(() => {
+    if (location.pathname !== '/') {
+      if (location.pathname === '/about') setActiveSection('about');
+      if (location.pathname === '/gallery') setActiveSection('gallery');
+      return;
+    }
+
+    const sections = ['home', 'services', 'contact'];
+    const observers = sections.map((id) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting && !isNavigating) {
+            setActiveSection(id);
+          }
+        },
+        { threshold: 0, rootMargin: '-45% 0px -45% 0px' }
+      );
+
+      observer.observe(el);
+      return { observer, el };
+    });
+
+    return () => {
+      observers.forEach((obs) => {
+        if (obs) obs.observer.unobserve(obs.el);
+      });
+    };
+  }, [location.pathname, isNavigating]);
+
   const handleNavigation = (id: string, path?: string) => {
     setIsMobileMenuOpen(false);
+    setActiveSection(id);
+    setIsNavigating(true);
+    setTimeout(() => setIsNavigating(false), 1000); // lock observer updates during smooth scroll
 
     // If it's a page route (About, Gallery)
     if (path) {
@@ -58,11 +96,11 @@ const Header = () => {
   };
 
   const navItems = [
-    { label: 'Home', id: 'home', path: '/' }, // Handle as special case
-    { label: 'About', id: 'about', path: '/about' },
-    { label: 'Services', id: 'services' }, // Scroll to section
+    { label: 'Home', id: 'home', path: '/' },
+    { label: 'Services', id: 'services' },
     { label: 'Gallery', id: 'gallery', path: '/gallery' },
-    { label: 'Contact', id: 'contact' }, // Scroll to section
+    { label: 'About', id: 'about', path: '/about' },
+    { label: 'Contact', id: 'contact' },
   ];
 
   return (
@@ -97,16 +135,29 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          {navItems.map((item) => (
-            <button
-              key={item.label}
-              onClick={() => handleNavigation(item.id, item.path)}
-              className={`text-sm font-medium tracking-wide transition-all hover:opacity-70 ${isScrolled ? 'text-foreground' : 'text-white'
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <button
+                key={item.label}
+                onClick={() => handleNavigation(item.id, item.path)}
+                className={`relative text-sm font-medium tracking-wide transition-all pb-1.5 ${
+                  isActive
+                    ? (isScrolled ? 'text-primary font-semibold' : 'text-white font-semibold')
+                    : (isScrolled ? 'text-foreground/80 hover:text-primary' : 'text-white/80 hover:text-white')
                 }`}
-            >
-              {item.label}
-            </button>
-          ))}
+              >
+                {item.label}
+                {isActive && (
+                  <span
+                    className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-full ${
+                      isScrolled ? 'bg-primary' : 'bg-white'
+                    }`}
+                  />
+                )}
+              </button>
+            );
+          })}
           <Button
             onClick={() => handleNavigation('contact')}
             className={`rounded-full px-6 font-semibold transition-all duration-300 ${isScrolled
@@ -169,17 +220,22 @@ const Header = () => {
 
             {/* Navigation Links */}
             <nav className="flex flex-col gap-1 py-8">
-              {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => handleNavigation(item.id, item.path)}
-                  className={`text-left font-medium py-3 px-4 rounded-xl text-foreground hover:bg-primary/5 hover:text-primary transition-all duration-200 text-base flex justify-between items-center ${
-                    location.pathname === item.path ? 'bg-primary/5 text-primary font-semibold' : ''
-                  }`}
-                >
-                  <span>{item.label}</span>
-                </button>
-              ))}
+              {navItems.map((item) => {
+                const isActive = activeSection === item.id;
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => handleNavigation(item.id, item.path)}
+                    className={`text-left font-medium py-3 px-4 rounded-xl transition-all duration-200 text-base flex justify-between items-center ${
+                      isActive
+                        ? 'bg-primary/10 text-primary font-bold'
+                        : 'text-foreground hover:bg-primary/5 hover:text-primary'
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                  </button>
+                );
+              })}
             </nav>
           </div>
 

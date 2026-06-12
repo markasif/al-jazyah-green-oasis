@@ -56,10 +56,11 @@ const Index = () => {
                     alt={item.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
-                  <div className="absolute bottom-6 left-6 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <p className="text-xs font-bold uppercase tracking-wider mb-2">{item.title}</p>
-                    <h3 className="font-serif text-2xl">{item.name}</h3>
+                  {/* Premium dark gradient overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
+                  <div className="absolute bottom-6 left-6 right-6 text-white z-10 transition-transform duration-500 transform translate-y-2 group-hover:translate-y-0">
+                    <p className="text-xs font-bold uppercase tracking-widest text-emerald-400 mb-2">{item.title}</p>
+                    <h3 className="font-serif text-2xl text-white group-hover:text-emerald-50 transition-colors">{item.name}</h3>
                   </div>
                 </div>
               </button>
