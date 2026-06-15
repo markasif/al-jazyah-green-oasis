@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Award, Users, Leaf, Clock, Sprout, Palette, ShieldCheck } from 'lucide-react';
+import SectionHeading from '@/components/SectionHeading';
 const heroImage = '/image/hero-landscape_4.webp';
 
 const stats = [
@@ -45,10 +46,10 @@ const About = () => {
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
                         {/* Valid Semantic Content */}
                         <div className="animate-fade-up">
-                            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary mb-4">Our Heritage</p>
-                            <h2 className="heading-section text-foreground mb-6">
-                                Transforming Abu Dhabi's Urban Landscape
-                            </h2>
+                            <SectionHeading
+                                subtitle="Our Heritage"
+                                title="Transforming Abu Dhabi's Urban Landscape"
+                            />
                             <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
                                 At Al Jazyah Trading, we believe that every space has the potential to become
                                 a green sanctuary. For over two decades, we have been at the forefront of
@@ -71,7 +72,7 @@ const About = () => {
                         </div>
 
                         {/* Stats Grid */}
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="grid grid-cols-2 gap-2 md:gap-4 lg:gap-6">
                             {stats.map((stat, index) => (
                                 <div
                                     key={stat.label}
@@ -93,7 +94,7 @@ const About = () => {
                     </div>
 
                     {/* Mission & Vision Section */}
-                    <div className="grid md:grid-cols-2 gap-8 mb-24">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 lg:gap-6 mb-24">
                         {/* Mission */}
                         <div className="luxury-card p-10 relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full transition-transform duration-500 group-hover:scale-125" />
@@ -115,7 +116,7 @@ const About = () => {
                     {/* Our Design Philosophy */}
                     <div className="text-center md:px-20">
                         <h2 className="heading-section mb-12">Our Design Philosophy</h2>
-                        <div className="grid md:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
                             {[
                                 {
                                     icon: Leaf,

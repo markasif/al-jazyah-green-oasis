@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { Badge } from '@/components/ui/badge';
+import SectionHeading from '@/components/SectionHeading';
 const indoorPlantsImg = '/image/indoor-plants_5.webp';
 const outdoorGardenImg = '/image/outdoor-garden_8.webp';
 const irrigationImg = '/image/irrigation_7.webp';
@@ -139,18 +140,12 @@ const Gallery = () => {
             </section>
 
             {/* Transformation Showcase - Before & After */}
-            <section className="py-20 bg-background">
+            <section className="section-padding bg-background">
                 <div className="container-luxury mb-12">
-                    <div className="text-center"> {/* Centered for this section specifically as it spans full width generally, but let's keep it consistent or leave as center if best */}
-                        {/* Actually, user requested "same design look" which implies left align. BUT Before/After is often central. Let's try standard left align for consistency request. */}
-                        <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-                            <div>
-                                <p className="uppercase tracking-widest text-primary text-sm font-bold mb-3">See the Difference</p>
-                                <h2 className="heading-section text-foreground">Transforming Spaces</h2>
-                            </div>
-                            <div className="hidden md:block h-px bg-border flex-grow ml-12 mb-4" />
-                        </div>
-                    </div>
+                    <SectionHeading
+                        subtitle="See the Difference"
+                        title="Transforming Spaces"
+                    />
                 </div>
                 <div className="container-luxury">
                     <BeforeAfter
@@ -165,7 +160,7 @@ const Gallery = () => {
 
 
             {/* Gallery Grid Section */}
-            <section id="products" className="py-20 bg-background">
+            <section id="products" className="section-padding bg-background">
                 <div className="container-luxury">
                     {/* Category Filter */}
                     <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -184,7 +179,7 @@ const Gallery = () => {
                     </div>
 
                     {/* Gallery Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
                         {filteredPlants.map((plant) => (
                             <div key={plant.id} className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-500">
                                 <div className="aspect-[4/5] overflow-hidden">

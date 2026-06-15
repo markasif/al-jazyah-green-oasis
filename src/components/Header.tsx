@@ -105,10 +105,15 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-white/90 backdrop-blur-md shadow-sm py-4'
-        : 'bg-transparent py-6'
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 ${
+        isMobileMenuOpen
+          ? 'bg-transparent py-4'
+          : `transition-all duration-300 ${
+              isScrolled
+                ? 'bg-white/90 backdrop-blur-md shadow-sm py-4'
+                : 'bg-transparent py-6'
+            }`
+      }`}
     >
       <div className="container-luxury flex items-center justify-between">
         {/* Logo */}
@@ -180,39 +185,39 @@ const Header = () => {
 
       {/* Mobile Sidebar (Drawer) */}
       <div
-        className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-[100] md:hidden transition-all duration-300 isolate ${
           isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
         {/* Backdrop overlay */}
         <div
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
+          className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 z-10"
           onClick={() => setIsMobileMenuOpen(false)}
         />
 
         {/* Sidebar panel */}
         <div
-          className={`absolute top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl p-6 flex flex-col justify-between transition-transform duration-300 transform ${
+          className={`absolute top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-[#133c27] shadow-2xl p-6 flex flex-col justify-between transition-transform duration-300 transform border-l border-white/10 z-20 ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
           <div>
             {/* Sidebar Header */}
-            <div className="flex items-center justify-between pb-6 border-b border-border">
+            <div className="flex items-center justify-between pb-6 border-b border-white/10">
               <div className="flex items-center gap-2">
                 <img
                   src="/icons/logo.jpg"
                   alt="Al Jazyah Logo"
-                  className="w-8 h-8 object-contain"
+                  className="w-8 h-8 object-contain rounded-md"
                 />
                 <div className="flex flex-col">
-                  <span className="font-serif font-bold text-foreground leading-none text-base">Al Jazyah</span>
-                  <span className="text-[9px] uppercase tracking-wider text-muted-foreground mt-0.5">Green Oasis</span>
+                  <span className="font-serif font-bold text-white leading-none text-base">Al Jazyah</span>
+                  <span className="text-[9px] uppercase tracking-wider text-emerald-400/80 mt-0.5">Green Oasis</span>
                 </div>
               </div>
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 rounded-full hover:bg-muted text-foreground transition-colors"
+                className="p-2 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -228,8 +233,8 @@ const Header = () => {
                     onClick={() => handleNavigation(item.id, item.path)}
                     className={`text-left font-medium py-3 px-4 rounded-xl transition-all duration-200 text-base flex justify-between items-center ${
                       isActive
-                        ? 'bg-primary/10 text-primary font-bold'
-                        : 'text-foreground hover:bg-primary/5 hover:text-primary'
+                        ? 'bg-white/10 text-white font-bold'
+                        : 'text-white/80 hover:bg-white/5 hover:text-white'
                     }`}
                   >
                     <span>{item.label}</span>
@@ -240,18 +245,18 @@ const Header = () => {
           </div>
 
           {/* Sidebar Footer */}
-          <div className="space-y-6 border-t border-border pt-6">
+          <div className="space-y-6 border-t border-white/10 pt-6">
             <Button
               onClick={() => handleNavigation('contact')}
-              className="w-full rounded-xl bg-primary text-white hover:bg-primary/90 py-6 text-base font-semibold shadow-md"
+              className="w-full rounded-xl bg-white text-[#133c27] hover:bg-white/90 py-6 text-base font-bold shadow-md transition-colors"
             >
               Get Quote
             </Button>
             
             {/* Quick Contacts inside sidebar */}
-            <div className="space-y-3 text-xs text-muted-foreground">
-              <p className="font-semibold uppercase tracking-wider text-[10px] text-foreground">Contact Info</p>
-              <a href="tel:+971507000913" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <div className="space-y-3 text-xs text-white/75">
+              <p className="font-semibold uppercase tracking-wider text-[10px] text-emerald-400/85">Contact Info</p>
+              <a href="tel:+971507000913" className="flex items-center gap-2 hover:text-white transition-colors">
                 <span>📞 +971 50 700 0913</span>
               </a>
               <p className="flex items-center gap-2">

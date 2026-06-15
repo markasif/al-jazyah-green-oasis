@@ -1,4 +1,5 @@
 import { Award, Users, Leaf, Clock } from 'lucide-react';
+import SectionHeading from '@/components/SectionHeading';
 
 const stats = [
   { icon: Clock, value: '20+', label: 'Years Experience' },
@@ -14,10 +15,11 @@ const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}
           <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-secondary mb-4">Our Heritage</p>
-            <h2 className="heading-section text-foreground mb-6">
-              Transforming Abu Dhabi's Urban Landscape Since 2005
-            </h2>
+            <SectionHeading
+              subtitle="Our Heritage"
+              title="Transforming Abu Dhabi's Urban Landscape Since 2005"
+              subtitleColor="secondary"
+            />
             <p className="text-muted-foreground mb-6 leading-relaxed">
               At Al Jazyah Trading, we believe that every space has the potential to become 
               a green sanctuary. For over two decades, we have been at the forefront of 
@@ -41,7 +43,7 @@ const AboutSection = () => {
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-2 md:gap-4 lg:gap-6">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
@@ -67,7 +69,7 @@ const AboutSection = () => {
           <h3 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-8">
             Why Choose Al Jazyah?
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
             <div className="p-6">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                 <span className="text-2xl font-serif font-bold text-primary">01</span>

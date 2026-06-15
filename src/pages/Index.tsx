@@ -9,6 +9,7 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import SectionHeading from '@/components/SectionHeading';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -21,17 +22,20 @@ const Index = () => {
       {/* Featured Collection Preview */}
       <section className="section-padding bg-muted/30">
         <div className="container-luxury">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div>
-              <p className="text-sm uppercase tracking-[0.25em] text-primary mb-4 font-semibold">Curated Collection</p>
-              <h2 className="heading-section">Signature Flora</h2>
-            </div>
-            <button onClick={() => navigate('/gallery#products')} className="group flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors">
-              Explore Full Gallery <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </button>
-          </div>
+          <SectionHeading
+            subtitle="Curated Collection"
+            title="Signature Flora"
+            rightElement={
+              <button
+                onClick={() => navigate('/gallery#products')}
+                className="group flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors self-start md:self-auto mb-2"
+              >
+                Explore Full Gallery <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            }
+          />
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
             {[
               {
                 title: 'Indoor Statement',

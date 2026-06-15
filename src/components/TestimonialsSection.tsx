@@ -1,4 +1,5 @@
 import { Quote } from 'lucide-react';
+import SectionHeading from '@/components/SectionHeading';
 
 const testimonials = [
     {
@@ -25,15 +26,13 @@ const TestimonialsSection = () => {
     return (
         <section className="section-padding bg-background relative">
             <div className="container-luxury">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                    <div>
-                        <p className="text-sm uppercase tracking-[0.25em] text-primary mb-4 font-semibold">Client Stories</p>
-                        <h2 className="heading-section">Trusted by Abu Dhabi Families</h2>
-                    </div>
-                    <div className="hidden md:block h-px bg-border flex-grow ml-12 mb-4" />
-                </div>
+                <SectionHeading
+                    subtitle="Client Stories"
+                    title="Trusted by Abu Dhabi Families"
+                   
+                />
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
                     {testimonials.map((testimonial, index) => (
                         <div key={index} className="luxury-card p-8 md:p-10 flex flex-col">
                             <Quote className="w-10 h-10 text-primary/20 mb-6" />

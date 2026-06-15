@@ -1,4 +1,5 @@
 import { Droplets, Hammer, Flower2, TreeDeciduous, Wrench, Plug, Pipette, Sprout } from 'lucide-react';
+import SectionHeading from '@/components/SectionHeading';
 const irrigationImg = '/image/irrigation_7.webp';
 const waterFeatureImg = '/image/water-feature_9.webp';
 const interlockImg = '/image/interlock-tiles_6.webp';
@@ -65,19 +66,14 @@ const ServicesSection = () => {
       <div className="absolute bottom-40 right-20 w-32 h-32 bg-secondary/5 rounded-full blur-xl animate-float" style={{ animationDuration: '10s', animationDelay: '1s' }} />
 
       <div className="container-luxury relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div className="max-w-xl">
-            <p className="text-sm uppercase tracking-[0.25em] text-secondary mb-4 font-bold">What We Offer</p>
-            <h2 className="heading-section mb-6">Curated Landscape Services</h2>
-            <p className="text-muted-foreground text-lg">
-              We blend art and horticulture to deliver comprehensive solutions, from the initial soil preparation to the final flourish.
-            </p>
-          </div>
-          {/* Visual Balance Line */}
-          <div className="hidden md:block h-px bg-border flex-grow ml-12 mb-8" />
-        </div>
+        <SectionHeading
+          subtitle="What We Offer"
+          title="Curated Landscape Services"
+          subtitleColor="secondary"
+          description="We blend art and horticulture to deliver comprehensive solutions, from the initial soil preparation to the final flourish."
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[350px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 lg:gap-6 auto-rows-[350px]">
           {services.map((service, index) => (
             <div
               key={service.title}

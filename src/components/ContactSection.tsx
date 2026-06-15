@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import SectionHeading from '@/components/SectionHeading';
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -49,17 +50,17 @@ const ContactSection = () => {
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="container-luxury relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div className="max-w-2xl">
-            <p className="text-sm uppercase tracking-[0.25em] text-primary mb-4 font-semibold">Get In Touch</p>
-            <h2 className="heading-section text-foreground">Let's Create Your Green Sanctuary</h2>
-          </div>
-          <div className="hidden md:block">
-            <p className="text-muted-foreground max-w-sm text-right">
-              Ready to transform your space? Reach out for a free consultation and quote.
-            </p>
-          </div>
-        </div>
+        <SectionHeading
+          subtitle="Get In Touch"
+          title="Let's Create Your Green Sanctuary"
+          rightElement={
+            <div className="hidden md:block self-end mb-2">
+              <p className="text-muted-foreground max-w-sm text-right">
+                Ready to transform your space? Reach out for a free consultation and quote.
+              </p>
+            </div>
+          }
+        />
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Info */}
@@ -72,7 +73,7 @@ const ContactSection = () => {
                 <div>
                   <h4 className="font-serif text-xl font-bold text-foreground mb-2">Visit Us</h4>
                   <p className="text-muted-foreground leading-relaxed">
-                    Shop 29, Mina Irani Market<br />
+                    Mina Irani Market<br />
                     Abu Dhabi, UAE
                   </p>
                 </div>

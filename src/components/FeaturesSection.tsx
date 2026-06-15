@@ -1,17 +1,17 @@
 import { Award, Users, Leaf, Clock } from 'lucide-react';
+import SectionHeading from '@/components/SectionHeading';
 
 const FeaturesSection = () => {
     return (
-        <section className="py-20 section-padding relative">
+        <section className="section-padding relative">
             <div className="container-luxury">
-                <div className="text-center mb-16">
-                    <h2 className="heading-section text-foreground mb-4">Why Choose Al Jazyah?</h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                        We combine decades of expertise with a passion for green living to creating sustainable outdoor masterpieces.
-                    </p>
-                </div>
+                <SectionHeading
+                    subtitle="Why Us"
+                    title="Why Choose Al Jazyah?"
+                    description="We combine decades of expertise with a passion for green living to creating sustainable outdoor masterpieces."
+                />
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
                     <div className="luxury-card p-8 text-center bg-white group hover:bg-white/50 transition-colors">
                         <div className="icon-wrapper w-20 h-20 mx-auto mb-6 rounded-2xl bg-primary/5 flex items-center justify-center text-primary">
                             <Clock className="w-10 h-10" />

@@ -1,4 +1,5 @@
 import { Calendar, PenTool, Shovel, HeartHandshake } from 'lucide-react';
+import SectionHeading from '@/components/SectionHeading';
 
 const steps = [
     {
@@ -35,19 +36,19 @@ const ProcessSection = () => {
             </div>
 
             <div className="container-luxury relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
-                    <div className="max-w-xl">
-                        <p className="text-sm uppercase tracking-[0.25em] text-primary mb-4 font-semibold">Our Journey</p>
-                        <h2 className="heading-section">From Vision to Reality</h2>
-                    </div>
-                    <div className="hidden md:block">
-                        <p className="text-muted-foreground max-w-sm text-right text-lg">
-                            A seamless, creative journey tailored to transform your outdoor living.
-                        </p>
-                    </div>
-                </div>
+                <SectionHeading
+                    subtitle="Our Journey"
+                    title="From Vision to Reality"
+                    rightElement={
+                        <div className="hidden md:block self-end mb-2">
+                            <p className="text-muted-foreground max-w-sm text-right text-lg">
+                                A seamless, creative journey tailored to transform your outdoor living.
+                            </p>
+                        </div>
+                    }
+                />
 
-                <div className="grid md:grid-cols-4 gap-8 relative">
+                <div className="grid md:grid-cols-4 gap-2 md:gap-4 lg:gap-6 relative">
                     {steps.map((step, index) => (
                         <div key={index} className="relative group">
                             {/* Connector Dot */}

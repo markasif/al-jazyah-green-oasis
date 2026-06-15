@@ -9,6 +9,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
+import SectionHeading from "@/components/SectionHeading";
 const heroImage = "/image/hero-landscape_4.webp"; // Using existing assets for now
 const outdoorGardenImg = "/image/outdoor-garden_8.webp";
 const indoorPlantsImg = "/image/indoor-plants_5.webp";
@@ -52,17 +53,17 @@ const ProjectsCarousel = () => {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container-luxury relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                    <div>
-                        <p className="text-sm uppercase tracking-[0.25em] text-primary mb-4 font-semibold">Our Masterpieces</p>
-                        <h2 className="heading-section">Featured Projects</h2>
-                    </div>
-                    <div className="hidden md:block">
-                        <p className="text-muted-foreground max-w-sm text-right">
-                            Swipe to explore our award-winning transformations across the UAE.
-                        </p>
-                    </div>
-                </div>
+                <SectionHeading
+                    subtitle="Our Masterpieces"
+                    title="Featured Projects"
+                    rightElement={
+                        <div className="hidden md:block self-end mb-2">
+                            <p className="text-muted-foreground max-w-sm text-right">
+                                Swipe to explore our award-winning transformations across the UAE.
+                            </p>
+                        </div>
+                    }
+                />
 
                 <Carousel
                     opts={{
@@ -113,7 +114,7 @@ const ProjectsCarousel = () => {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <div className="flex justify-end gap-2 mt-8 px-4">
+                    <div className="flex justify-end gap-2 mt-4 md:mt-8 px-4">
                         <CarouselPrevious className="static translate-y-0 hover:bg-primary hover:text-white" />
                         <CarouselNext className="static translate-y-0 hover:bg-primary hover:text-white" />
                     </div>

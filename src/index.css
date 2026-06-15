@@ -181,7 +181,7 @@
   }
 
   .section-padding {
-    @apply py-10 md:py-16;
+    @apply py-6 md:py-8 lg:py-10;
   }
 
   .heading-display {
@@ -189,7 +189,7 @@
   }
 
   .heading-section {
-    @apply text-3xl md:text-4xl font-bold tracking-tight text-foreground;
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-foreground;
   }
 
   /* Subtler leaf decoration, or remove if too noisy. Keeping subtle for now. */
